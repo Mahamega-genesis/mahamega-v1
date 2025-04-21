@@ -5,6 +5,7 @@ from modules.calculate_rsi import calculate_rsi
 from modules.sheet_logger import log_to_sheet
 from modules.whale_alert import fetch_whale_data
 from utils.signal_formatter import format_signal
+from utils.telegram_notifier import send_telegram_message
 import time
 
 COINS = ["bitcoin", "ethereum", "solana", "ripple", "dogecoin"]
@@ -28,9 +29,10 @@ while True:
             )
 
             log_to_sheet(signal)
+            send_telegram_message(signal)
             print(signal)
 
         except Exception as e:
             print(f"{coin.upper()} error: {e}")
 
-    time.sleep(300)  # jalankan tiap 5 menit
+    time.sleep(300)  # 5 menit
