@@ -2,7 +2,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("mahamega-credentials.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name("mahamega-guardian.json", scope)
 client = gspread.authorize(creds)
 
 SHEET_ID = "16_5-YppelzsLXqmvFnjJNSFfWI2EKIgeQlPZ7i_Qg_o"
